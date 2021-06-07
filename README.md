@@ -1,1 +1,1 @@
-[Source](https://sitoi.gitee.io/dailycheckin/)
+[Doc](https://sitoi.gitee.io/dailycheckin/)
