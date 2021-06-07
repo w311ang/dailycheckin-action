@@ -1,0 +1,26 @@
+name: dailycheckin
+
+on:
+  push:
+  schedule:
+    - cron: 0 0 * * *
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - name: Install dependencies
+        run: |
+          pip install dailycheckin --user
+      - name: Config
+        run: |
+          sed -i 's/$kgqq_cookie/${{ secrets.kgqq_cookie }}/g' ./config/config.json
+      - name: Run
+        run: |
+          python -u $HOME/.local/bin/dailycheckin
