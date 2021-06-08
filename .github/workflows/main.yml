@@ -22,7 +22,7 @@ jobs:
         env:
           config: ${{ secrets.config }}
         run: |
-          curl -O config/config.json $config
+          curl -o config/config.json $config
       - name: Run
         run: |
           python -u $HOME/.local/bin/dailycheckin
