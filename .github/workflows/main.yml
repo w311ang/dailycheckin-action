@@ -19,6 +19,8 @@ jobs:
         run: |
           pip install dailycheckin --user
       - name: Config
+        env:
+          kgqq_cookie: ${{ secrets.kgqq_cookie }}
         run: |
           sh config.sh > ./config/config.json
       - name: Run
