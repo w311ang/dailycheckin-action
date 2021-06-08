@@ -29,7 +29,7 @@ jobs:
         env:
           config: ${{ secrets.ss_config }}
         run: |
-          sudo apt-get install shadowsocks-libev simple-obfs proxychains-ng
+          sudo apt-get install shadowsocks-libev simple-obfs
           sudo -E sh -c 'echo $config|base64 -d > /etc/shadowsocks-libev/config.json'
           sudo sh -c 'echo "\
           [Unit]
@@ -45,8 +45,6 @@ jobs:
           sudo systemctl start shadowsocks
           sleep 3s
           systemctl status --no-pager shadowsocks
-          sudo sed -i 's/socks4 	127.0.0.1 9050/socks5 127.0.0.1 1080/g' /etc/proxychains4.conf
-          sudo sed -i 's/#quiet_mode/quiet_mode/g' /etc/proxychains4.conf
       - name: Run
         run: |
           python -u $HOME/.local/bin/dailycheckin
