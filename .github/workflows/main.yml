@@ -49,4 +49,4 @@ jobs:
           sudo sed -i 's/#quiet_mode/quiet_mode/g' /etc/proxychains4.conf
       - name: Run
         run: |
-          python -u $HOME/.local/bin/dailycheckin
+          proxychains python -u $HOME/.local/bin/dailycheckin
