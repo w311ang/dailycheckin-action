@@ -20,7 +20,7 @@ jobs:
           pip install dailycheckin --user
       - name: Config
         run: |
-          sed -i 's/$kgqq_cookie/${{ secrets.kgqq_cookie }}/g' ./config/config.json
+          sh config.sh > ./config/config.json
       - name: Run
         run: |
           python -u $HOME/.local/bin/dailycheckin
