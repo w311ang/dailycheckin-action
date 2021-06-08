@@ -22,7 +22,7 @@ jobs:
         env:
           kgqq_cookie: ${{ secrets.kgqq_cookie }}
         run: |
-          sh config.sh > ./config/config.json
+          python -u repjson.py
       - name: Run
         run: |
           python -u $HOME/.local/bin/dailycheckin
