@@ -20,9 +20,9 @@ jobs:
           pip install dailycheckin --user
       - name: Config
         env:
-          kgqq_cookie: ${{ secrets.kgqq_cookie }}
+          config: ${{ secrets.config }}
         run: |
-          python -u repjson.py
+          echo '$config' > ./config/config.json
       - name: Run
         run: |
           python -u $HOME/.local/bin/dailycheckin
